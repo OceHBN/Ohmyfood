@@ -1,248 +1,227 @@
-.shrikhand-regular {
-    font-family: "Shrikhand", serif;
-    font-style: normal;
-}
-
-.roboto-regular {
-    font-family: "Roboto", sans-serif;
-    font-style: normal;
-}
-
 * {
-    font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 :root {
-    --main-color: #9356DC;
-    --main-bg-color: #FF79DA;
-    --filter-bg-color: #99E2D0;
+  --main-color: $main-color;
+  --main-bg-color: $main-bg-color;
+  --filter-bg-color: $filter-bg-color;
 }
 
 h1,
 p {
-    margin: 0;
+  margin: 0;
 }
 
 .fa-solid {
-    color: black;
+  color: black;
 }
 
 body {
-    max-width: 430px;
-    margin: auto;
+  max-width: 430px;
+  margin: 0;
 }
 
-/* CSS Page d'acceuil HTML */
-/* Head */
 .head {
-    height: 63px;
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+  height: 63px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
-/* Section Intro */
 .intro {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+}
+.intro .localisation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #EAEAEA;
+  box-shadow: inset -1px -1px 4px 0px;
+  height: 50px;
+}
+.intro .localisation form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.intro .localisation .ville {
+  background-color: #EAEAEA;
+  border: 0px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.intro .intro-txt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  gap: 20px;
+  background-color: #f4f4f4;
+  text-align: center;
+  font-size: larger;
+}
+.intro .intro-txt h1 {
+  font-weight: bold;
+}
+.intro .intro-txt p {
+  color: #353535;
+}
+.intro .intro-txt .btn {
+  font-size: 1rem;
+  background: linear-gradient(to bottom, #FF79DA, #9356DC);
+  color: white;
+  height: 50px;
+  width: 218px;
+  border-radius: 25px;
+  border-color: transparent;
+  border: solid;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.14);
 }
 
-.localisation {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-color: #EAEAEA;
-    box-shadow: 2px 0 8px;
-    height: 50px;
-    ;
-}
-
-.ville {
-    background-color: #EAEAEA;
-    border: 0px;
-    font-size: 1.2rem;
-}
-
-.intro-txt {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px;
-    gap: 20px;
-    background-color: #f4f4f4;
-
-}
-
-.btn {
-    font-size: 1rem;
-    background: linear-gradient(to bottom, var(--main-bg-color), var(--main-color));
-    color: white;
-    height: 50px;
-    width: 218px;
-    border-radius: 25px;
-    border-color: transparent;
-}
-
-/* Section Fonctionnement */
 .fonctionnement {
-    font-size: 1.2rem;
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px
+  font-size: 1.2rem;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.fonctionnement .step {
+  display: flex;
+  background-color: #f4f4f4;
+  border-radius: 25px;
+  font-size: 0.8rem;
+  height: 73px;
+}
+.fonctionnement .step .sous-step {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+}
+.fonctionnement .step .sous-step .number {
+  color: white;
+  height: 24px;
+  width: 24px;
+  border-radius: 40%;
+  background-color: #9356DC;
 }
 
-.step {
-    display: flex;
-
-    background-color: #f4f4f4;
-    border-radius: 25px;
-    font-size: 0.8rem;
-    height: 73px;
-}
-
-.sous-step {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 15px;
-}
-
-.number {
-    color: white;
-    height: 24px;
-    width: 24px;
-    border-radius: 40%;
-    background-color: var(--main-color);
-}
-
-/* Restaurant card */
 .restaurants {
-    background-color: #f4f4f4;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 15px;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 15px;
+}
+.restaurants .card {
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px;
+  filter: drop-shadow(0px 4px 10px 0px rgba(0, 0, 0, 0.14));
+}
+.restaurants .card img {
+  width: 346px;
+  height: 124px;
+  border-radius: 20px 20px 0px 0px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.restaurants .card .etiquette p {
+  background-color: #008766;
+  opacity: 0.3;
+  color: white;
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+}
+.restaurants .card .card-content {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 25px;
+  padding-left: 10px;
+}
+.restaurants .card .card-content .card-title {
+  font-size: 16px;
 }
 
-.card {
-    background-color: white;
-    border-radius: 20px;
-    padding: 5px;
-    filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
-}
-
-.card img {
-    width: 346px;
-    height: 124px;
-    border-radius: 20px 20px 0px 0px;
-    object-fit: cover;
-}
-
-.etiquette p {
-    background-color: #008766;
-    opacity: 0.3;
-    color: white;
-    display: inline-block;
-    padding: 5px 10px;
-    font-size: 0.8rem;
-}
-
-.card-content {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    border-radius: 25px;
-    padding-left: 10px;
-}
-
-.card-title {
-    font-size: 16px;
-}
-
-/* Footer */
 .footer {
-    background-color: #353535;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
+  background-color: #353535;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.footer .white-logo {
+  fill: white;
+}
+.footer .footer-link {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.footer .footer-link .no-underline {
+  text-decoration: none;
+}
+.footer .footer-link a {
+  color: white;
 }
 
-.white-logo {
-    fill: white;
-}
-
-.footer-link {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.no-underline {
-    text-decoration: none;
-}
-
-.footer a {
-    color: white;
-}
-
-/* CSS Page Restaurant HTML */
 .pp img {
-    height: 275px;
-    object-fit: cover;
+  height: 275px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .menu {
-    background-color: #F6F6F6;
-    border-radius: 40px 40px 0 0;
+  background-color: #F6F6F6;
+  border-radius: 40px 40px 0 0;
 }
-
-.menu-name {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 15px;
-    padding: 10px;
-    font-size: 1.8rem;
-    font-style: bold;
+.menu .menu-name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  font-size: 1.8rem;
+  font-style: bold;
 }
-
-.menu-catego {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 25px;
+.menu .menu-name h1 {
+  font-family: "Shrikhand", serif;
 }
-
-.catego-name {
-    width: 50px;
-    border-bottom: 3px #99E2D0 solid;
-    font-size: 1.5rem;
+.menu .menu-catego {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 25px;
 }
-
-.met-name {
-    height: 60px;
-    padding: 10px;
-    background-color: white;
-    border-radius: 15px;
+.menu .menu-catego .catego-name {
+  width: 50px;
+  border-bottom: 3px #99E2D0 solid;
+  font-size: 1.5rem;
 }
-
-.met-subname {
-    font-weight: 700;
-    font-size: 1.6rem;
+.menu .menu-catego .met-name {
+  height: 60px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 15px;
 }
-
-.subtitle-met-name {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    font-size: 1.2rem;
+.menu .menu-catego .met-name h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
 }
-
-.prix {
-    font-weight: 900;
+.menu .menu-catego .met-name .subtitle-met-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.2rem;
 }
+.menu .menu-catego .met-name .subtitle-met-name .prix {
+  font-weight: 900;
+}/*# sourceMappingURL=style.css.map */

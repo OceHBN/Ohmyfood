@@ -1,0 +1,280 @@
+// Variables
+$main-color: #9356DC;
+$main-bg-color: #FF79DA;
+$filter-bg-color: #99E2D0;
+$gray-bg: #f4f4f4;
+$white: white;
+$black: black;
+$dark-gray: #353535;
+$green: #008766;
+$shadow: 0px 4px 10px 0px rgb(0 0 0 / 14%);
+
+// Mixins pour les polices
+@mixin font-roboto {
+    font-family: "Roboto", sans-serif;
+}
+
+@mixin font-shrikhand {
+    font-family: "Shrikhand", serif;
+}
+
+// Global Styles
+* {
+    @include font-roboto;
+}
+
+:root {
+    --main-color: $main-color;
+    --main-bg-color: $main-bg-color;
+    --filter-bg-color: $filter-bg-color;
+}
+
+h1,
+p {
+    margin: 0;
+}
+
+.fa-solid {
+    color: $black;
+}
+
+body {
+    max-width: 430px;
+    margin: 0;
+}
+
+// Head
+.head {
+    height: 63px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+// Section Intro
+.intro {
+    display: flex;
+    flex-direction: column;
+
+    .localisation {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: #EAEAEA;
+        box-shadow: inset -1px -1px 4px 0px;
+        height: 50px;
+
+        form {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ville {
+            background-color: #EAEAEA;
+            border: 0px;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+    }
+
+    .intro-txt {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px;
+        gap: 20px;
+        background-color: $gray-bg;
+        text-align: center;
+        font-size: larger;
+
+        h1 {
+            font-weight: bold;
+        }
+
+        p {
+            color: #353535;
+        }
+
+        .btn {
+            font-size: 1rem;
+            background: linear-gradient(to bottom, $main-bg-color, $main-color);
+            color: $white;
+            height: 50px;
+            width: 218px;
+            border-radius: 25px;
+            border-color: transparent;
+            border: solid;
+            box-shadow: 0px 4px 10px 0px rgb(0 0 0 / 14%);
+            ;
+        }
+    }
+}
+
+// Section Fonctionnement
+.fonctionnement {
+    font-size: 1.2rem;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .step {
+        display: flex;
+        background-color: $gray-bg;
+        border-radius: 25px;
+        font-size: 0.8rem;
+        height: 73px;
+
+        .sous-step {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 15px;
+
+            .number {
+                color: $white;
+                height: 24px;
+                width: 24px;
+                border-radius: 40%;
+                background-color: $main-color;
+            }
+        }
+    }
+}
+
+// Restaurant Card
+.restaurants {
+    background-color: $gray-bg;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px;
+
+    .card {
+        background-color: $white;
+        border-radius: 20px;
+        padding: 5px;
+        filter: drop-shadow($shadow);
+
+        img {
+            width: 346px;
+            height: 124px;
+            border-radius: 20px 20px 0px 0px;
+            object-fit: cover;
+        }
+
+        .etiquette p {
+            background-color: $green;
+            opacity: 0.3;
+            color: $white;
+            display: inline-block;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            background-color: $white;
+            border-radius: 25px;
+            padding-left: 10px;
+
+            .card-title {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+// Footer
+.footer {
+    background-color: $dark-gray;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    .white-logo {
+        fill: $white;
+    }
+
+    .footer-link {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .no-underline {
+            text-decoration: none;
+        }
+
+        a {
+            color: $white;
+        }
+    }
+}
+
+// Page Restaurant HTML (restau1.html)
+.pp img {
+    height: 275px;
+    object-fit: cover;
+}
+
+.menu {
+    background-color: #F6F6F6;
+    border-radius: 40px 40px 0 0;
+
+    .menu-name {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+        padding: 10px;
+        font-size: 1.8rem;
+        font-style: bold;
+
+        h1 {
+            @include font-shrikhand;
+        }
+    }
+
+    .menu-catego {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 25px;
+
+        .catego-name {
+            width: 50px;
+            border-bottom: 3px $filter-bg-color solid;
+            font-size: 1.5rem;
+        }
+
+        .met-name {
+            height: 60px;
+            padding: 10px;
+            background-color: $white;
+            border-radius: 15px;
+
+            h1 {
+                font-size: 1.6rem;
+                font-weight: 700;
+            }
+
+            .subtitle-met-name {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                font-size: 1.2rem;
+
+                .prix {
+                    font-weight: 900;
+                }
+            }
+        }
+    }
+}
