@@ -53,7 +53,6 @@ body {
 .intro {
   display: flex;
   flex-direction: column;
-  /* Styles pour tablettes */
 }
 .intro .localisation {
   display: flex;
@@ -98,6 +97,7 @@ body {
   color: #353535;
 }
 .intro .fonctionnement {
+  font-size: 1.2rem;
   padding: 25px;
   display: flex;
   flex-direction: column;
@@ -287,5 +287,4 @@ body {
   display: flex;
   justify-content: center;
   padding: 20px 0 40px 0;
-}
-/* Styles pour ordinateurs de bureau *//*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
