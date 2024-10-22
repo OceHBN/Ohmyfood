@@ -10,7 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -36,7 +37,11 @@
             <div class="intro-txt">
                 <h1>Réserver le menu qui vous convient</h1>
                 <p>Découvrez des restaurants d'exception, selectionné par nos soins</p>
-                <button class="btn">Explorer nos restaurants</button>
+                <div class="explor">
+                    <a href="#explor">
+                        <button class="btn">Explorer nos restaurants</button>
+                    </a>
+                </div>
             </div>
         </section>
         <!-- fin Section Intro -->
@@ -45,35 +50,41 @@
             <h1>Fonctionnement</h1>
             <article class="step">
                 <div class="sous-step">
-                    <div class="number">1</div>
-                    <div class="icon"><i class="fa-solid fa-phone"></i></div>
-                    <h2>Choissisez un restaurant</h2>
+                    <div class="circle-num">
+                        <div class="number">1</div>
+                    </div>
+                    <div class="icon"><i class="fa-solid fa-phone" style="color: #7E7E7E;"></i></div>
+                    <p>Choissisez un restaurant</p>
                 </div>
             </article>
 
             <article class="step">
                 <div class="sous-step">
-                    <div class="number">2</div>
-                    <div class="icon"><i class="fa-solid fa-list"></i></div>
-                    <h2>Composez votre menu</h2>
+                    <div class="circle-num">
+                        <div class="number">2</div>
+                    </div>
+                    <div class="icon"><i class="fa-solid fa-list" style="color:#7E7E7E;"></i></div>
+                    <p>Composez votre menu</p>
                 </div>
             </article>
 
             <article class="step">
                 <div class="sous-step">
-                    <div class="number">3</div>
+                    <div class="circle-num">
+                        <div class="number">3</div>
+                    </div>
                     <div class="icon"><i class="fa-solid fa-store" style="color: #9356dc;"></i></div>
-                    <h2>Dégustez au restaurant</h2>
+                    <p>Dégustez au restaurant</p>
                 </div>
             </article>
         </section>
         <!-- fin Section Fonctionnement  -->
         <!-- Section Restaurants -->
-        <section class="restaurants">
+        <section class="restaurants" id="explor">
             <h1>Restaurants</h1>
 
             <article class="card">
-                <a href="#">
+                <a href="./restau1.html">
                     <img src="./images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg"
                         alt="Restaurant à Minilmontant">
                     <div class="etiquette">
@@ -83,14 +94,16 @@
                         <div class="card-txt">
                             <h2 class="card-title"> La palette du goût</h2>
                             <p class="card-subtitle">Ménilmontant</p>
-                            <i class="fa-regular fa-heart"></i>
+                            <div class="heart">
+                                <i class="fa-regular fa-heart fa-xl" style="color: #101010;"></i>
+                            </div>
                         </div>
                     </div>
                 </a>
             </article>
 
             <article class="card">
-                <a href="#">
+                <a href="./restau2.html">
                     <img src="./images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg" alt="Restaurant à Charonne">
                     <div class="etiquette">
                         <p>Nouveau</p>
@@ -99,14 +112,16 @@
                         <div class="card-txt">
                             <h2 class="card-title">La note enchantée</h2>
                             <p class="card-subtitle">Charonne</p>
-                            <i class="fa-regular fa-heart"></i>
+                            <div class="heart">
+                                <i class="fa-regular fa-heart fa-xl" style="color: #101010;"></i>
+                            </div>
                         </div>
                     </div>
                 </a>
             </article>
 
             <article class="card">
-                <a href="#">
+                <a href="./restau3.html">
                     <img src="./images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg" alt="Restaurant à Cité Rouge">
                     <div class="etiquette">
                         <p>Nouveau</p>
@@ -115,14 +130,16 @@
                         <div class="card-txt">
                             <h2 class="card-title">À la Française</h2>
                             <p class="card-subtitle">Cité Rouge</p>
-                            <i class="fa-regular fa-heart"></i>
+                            <div class="heart">
+                                <i class="fa-regular fa-heart fa-xl" style="color: #101010;"></i>
+                            </div>
                         </div>
                     </div>
                 </a>
             </article>
 
             <article class="card">
-                <a href="#">
+                <a href="./restau4.html">
                     <img src="./images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg"
                         alt="Restaurant à Folie-Méricourt">
                     <div class="etiquette">
@@ -132,7 +149,9 @@
                         <div class="card-txt">
                             <h2 class="card-title">Le délice des sens</h2>
                             <p class="card-subtitle">Folie Méricourt</p>
-                            <i class="fa-regular fa-heart"></i>
+                            <div class="heart">
+                                <i class="fa-regular fa-heart fa-xl" style="color: #101010;"></i>
+                            </div>
                         </div>
                     </div>
                 </a>
@@ -142,8 +161,9 @@
     </main>
 
     <footer class="footer">
-        <a class="logo" href="index.html"><img class="white-logo" src="./images/logo/ohmyfood@2x.svg"
-                alt="Ohmyfood logo"></a>
+        <div class="footer-name">
+            <p>ohmyfood</p>
+        </div>
         <div class="footer-link">
             <div class="link-icon">
                 <i class="fa-solid fa-utensils fa-2xs" style="color: #ffffff;"></i>
