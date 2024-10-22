@@ -36,13 +36,7 @@ body {
   width: 218px;
   border-radius: 25px;
   border: none;
-  /* Aucune bordure */
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.14);
-}
-.btn .explor {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .head {
@@ -59,6 +53,7 @@ body {
 .intro {
   display: flex;
   flex-direction: column;
+  /* Styles pour tablettes */
 }
 .intro .localisation {
   display: flex;
@@ -66,8 +61,16 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #EAEAEA;
-  box-shadow: inset -1px -1px 4px 0px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   height: 50px;
+}
+.intro .localisation input::-moz-placeholder {
+  font-weight: bold;
+  color: black;
+}
+.intro .localisation input::placeholder {
+  font-weight: bold;
+  color: black;
 }
 .intro .localisation form {
   display: flex;
@@ -91,21 +94,16 @@ body {
   text-align: center;
   font-size: larger;
 }
-.intro .intro-txt h1 {
-  font-weight: bold;
-}
 .intro .intro-txt p {
   color: #353535;
 }
-
-.fonctionnement {
-  font-size: 1.2rem;
+.intro .fonctionnement {
   padding: 25px;
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
-.fonctionnement .step {
+.intro .fonctionnement .step {
   display: flex;
   background-color: #f4f4f4;
   border-radius: 25px;
@@ -115,7 +113,7 @@ body {
   padding: 10px 20px 10px 20px;
   position: relative;
 }
-.fonctionnement .step .sous-step {
+.intro .fonctionnement .step .sous-step {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -123,7 +121,7 @@ body {
   gap: 15px;
   padding-left: 15px;
 }
-.fonctionnement .step .sous-step .circle-num {
+.intro .fonctionnement .step .sous-step .circle-num {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -136,8 +134,7 @@ body {
   position: absolute;
   left: -10px;
 }
-
-.restaurants {
+.intro .restaurants {
   background-color: #f4f4f4;
   display: flex;
   flex-direction: column;
@@ -145,20 +142,20 @@ body {
   gap: 20px;
   padding: 40px 20px 40px 20px;
 }
-.restaurants .card {
+.intro .restaurants .card {
   background-color: white;
   border-radius: 20px;
   padding-bottom: 10px;
   position: relative;
 }
-.restaurants .card img {
+.intro .restaurants .card img {
   width: 100%;
   height: 200px;
   border-radius: 20px 20px 0px 0px;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.restaurants .card .etiquette p {
+.intro .restaurants .card .etiquette p {
   background-color: #99E2D0;
   color: #008766;
   display: inline-block;
@@ -168,13 +165,13 @@ body {
   top: 15px;
   right: 15px;
 }
-.restaurants .card .card-content {
+.intro .restaurants .card .card-content {
   display: flex;
   flex-direction: column;
   background-color: white;
   border-radius: 25px;
 }
-.restaurants .card .card-content .card-txt {
+.intro .restaurants .card .card-content .card-txt {
   text-decoration: none;
   color: inherit;
   display: flex;
@@ -183,69 +180,65 @@ body {
   padding: 10px;
   gap: 4px;
 }
-.restaurants .card .card-content .card-txt .heart {
+.intro .restaurants .card .card-content .card-txt .heart {
   position: absolute;
   top: 15px;
   right: 15px;
 }
-.restaurants .card .card-content .card-txt .card-title {
+.intro .restaurants .card .card-content .card-txt .card-title {
   font-size: 20px;
 }
-.restaurants .card .card-content .card-txt .card-subtitle {
+.intro .restaurants .card .card-content .card-txt .card-subtitle {
   font-weight: lighter;
 }
-
-.footer {
+.intro .footer {
   background-color: #353535;
   display: flex;
   flex-direction: column;
   padding: 20px;
 }
-.footer .footer-name {
+.intro .footer .footer-name {
   color: white;
   font-style: italic;
   font-weight: bold;
   font-size: 1.5rem;
   padding-bottom: 15px;
 }
-.footer .footer-name p {
+.intro .footer .footer-name p {
   font-family: "Shrikhand", serif;
 }
-.footer .footer-link {
+.intro .footer .footer-link {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
-.footer .footer-link .no-underline {
+.intro .footer .footer-link .no-underline {
   text-decoration: none;
 }
-.footer .footer-link a {
+.intro .footer .footer-link a {
   color: white;
 }
-.footer .footer-link .link-icon {
+.intro .footer .footer-link .link-icon {
   font-weight: bold;
 }
-
-.pp img {
+.intro .pp img {
   height: 275px;
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
   position: relative;
 }
-
-.arrow {
+.intro .arrow {
   position: absolute;
   left: 30px;
 }
-
-.menu {
+.intro .menu {
   background-color: #F6F6F6;
   border-radius: 40px 40px 0 0;
   position: relative;
   margin-top: -50px;
 }
-.menu .menu-name {
+.intro .menu .menu-name {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -254,21 +247,21 @@ body {
   padding: 40px 10px 20px 10px;
   font-size: 1.4rem;
 }
-.menu .menu-name h1 {
+.intro .menu .menu-name h1 {
   font-family: "Shrikhand", serif;
 }
-.menu .menu-catego {
+.intro .menu .menu-catego {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 25px;
 }
-.menu .menu-catego .catego-name {
+.intro .menu .menu-catego .catego-name {
   width: 50px;
   border-bottom: 3px #99E2D0 solid;
   font-size: 1.5rem;
 }
-.menu .menu-catego .met-name {
+.intro .menu .menu-catego .met-name {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -278,20 +271,21 @@ body {
   background-color: white;
   border-radius: 15px;
 }
-.menu .menu-catego .met-name .met-subname {
+.intro .menu .menu-catego .met-name .met-subname {
   font-size: 1.2rem;
 }
-.menu .menu-catego .met-name .subtitle-met-name {
+.intro .menu .menu-catego .met-name .subtitle-met-name {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   font-weight: lighter;
 }
-.menu .menu-catego .met-name .subtitle-met-name .prix {
+.intro .menu .menu-catego .met-name .subtitle-met-name .prix {
   font-weight: 900;
 }
-.menu .btn-cta {
+.intro .menu .btn-cta {
   display: flex;
   justify-content: center;
   padding: 20px 0 40px 0;
-}/*# sourceMappingURL=style.css.map */
+}
+/* Styles pour ordinateurs de bureau *//*# sourceMappingURL=style.css.map */
