@@ -19,6 +19,11 @@
 </head>
 
 <body>
+    <div class="load">
+        <div class="loader">
+        </div>
+    </div>
+
     <header>
         <div class="head">
             <a class="logo" href="index.html"><img src="./images/logo/ohmyfood@2x.svg" alt="Ohmyfood logo"></a>
@@ -39,7 +44,7 @@
                 <p>Découvrez des restaurants d'exception, selectionné par nos soins</p>
                 <div class="explor">
                     <a href="#explor">
-                        <button class="btn">Explorer nos restaurants</button>
+                        <div class="btn">Explorer nos restaurants</div>
                     </a>
                 </div>
             </div>
@@ -47,7 +52,7 @@
         <!-- fin Section Intro -->
         <!-- Section Fonctionnement  -->
         <section class="fonctionnement">
-            <h1>Fonctionnement</h1>
+            <h2>Fonctionnement</h2>
             <article class="step">
                 <div class="sous-step">
                     <div class="circle-num">
@@ -81,7 +86,7 @@
         <!-- fin Section Fonctionnement  -->
         <!-- Section Restaurants -->
         <section class="restaurants" id="explor">
-            <h1>Restaurants</h1>
+            <h2>Restaurants</h2>
 
             <article class="card">
                 <a href="./restau1.html">
@@ -92,14 +97,16 @@
                     </div>
                     <div class="card-content">
                         <div class="card-txt">
-                            <h2 class="card-title"> La palette du goût</h2>
+                            <h3 class="card-title"> La palette du goût</h3>
                             <p class="card-subtitle">Ménilmontant</p>
-                            <div class="heart">
-                                <i class="fa-regular fa-heart fa-xl" style="color: #101010;"></i>
-                            </div>
+
                         </div>
                     </div>
                 </a>
+                <div class="heart">
+                    <i class="fa-regular fa-heart fa-xl" style="color: #101010;"></i>
+                    <input type="checkbox" name="fill-h" id="fill-h">
+                </div>
             </article>
 
             <article class="card">
@@ -110,7 +117,7 @@
                     </div>
                     <div class="card-content">
                         <div class="card-txt">
-                            <h2 class="card-title">La note enchantée</h2>
+                            <h3 class="card-title">La note enchantée</h3>
                             <p class="card-subtitle">Charonne</p>
                             <div class="heart">
                                 <i class="fa-regular fa-heart fa-xl" style="color: #101010;"></i>
@@ -128,7 +135,7 @@
                     </div>
                     <div class="card-content">
                         <div class="card-txt">
-                            <h2 class="card-title">À la Française</h2>
+                            <h3 class="card-title">À la Française</h3>
                             <p class="card-subtitle">Cité Rouge</p>
                             <div class="heart">
                                 <i class="fa-regular fa-heart fa-xl" style="color: #101010;"></i>
@@ -147,11 +154,11 @@
                     </div>
                     <div class="card-content">
                         <div class="card-txt">
-                            <h2 class="card-title">Le délice des sens</h2>
-                            <p class="card-subtitle">Folie Méricourt</p>
-                            <div class="heart">
-                                <i class="fa-regular fa-heart fa-xl" style="color: #101010;"></i>
-                            </div>
+                            <h3 class="card-title">Le délice des sens</h>
+                                <p class="card-subtitle">Folie Méricourt</p>
+                                <div class="heart">
+                                    <i class="fa-regular fa-heart fa-xl" style="color: #101010;"></i>
+                                </div>
                         </div>
                     </div>
                 </a>
@@ -177,6 +184,7 @@
             <a href="mailto:ohmyfood@gmail.com" class="no-underline">Contact</a>
         </div>
     </footer>
+
 
 </body>
 

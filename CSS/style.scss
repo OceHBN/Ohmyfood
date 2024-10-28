@@ -8,6 +8,7 @@ $black: black;
 $dark-gray: #353535;
 $green: #99E2D0;
 $shadow: 0px 4px 10px 0px rgb(0 0 0 / 14%);
+$gradient-btn: linear-gradient(to bottom, #FF79DA, #9356DC);
 
 // Mixins pour les polices
 @mixin font-roboto {
@@ -30,9 +31,15 @@ $shadow: 0px 4px 10px 0px rgb(0 0 0 / 14%);
 }
 
 h1,
-p,
-h2 {
+h2,
+h3 {
     margin: 0;
+    font-size: 1.5rem;
+}
+
+p {
+    margin: 0;
+    font-size: 1.5;
 }
 
 
@@ -48,20 +55,160 @@ a {
 body {
     max-width: 430px;
     margin: 0;
+    position: relative;
+    z-index: 1;
 }
 
-.btn {
+// Animations & Transition
 
+.heart {
+    cursor: pointer;
+
+    input[type="checkbox"] {
+        position: absolute;
+        top: 1px;
+        right: 1px;
+        left: 1px;
+        bottom: 1px;
+        margin: 0;
+        padding: 0;
+        z-index: -1;
+        cursor: pointer;
+    }
+
+    .fa-heart {
+        border-color: #101010;
+    }
+
+    input[type="checkbox"]:checked+.fa-heart {
+        color: $main-bg-color;
+    }
+
+}
+
+.load {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    animation: apparition 3s both;
+    z-index: 10;
+
+    @keyframes apparition {
+
+        99% {
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            z-index: -10;
+        }
+    }
+
+    .loader {
+        display: block;
+        background-color: white;
+        border: 16px dotted;
+        border-color: $main-color;
+        width: 120px;
+        height: 120px;
+        margin: auto;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        border-radius: 50%;
+        position: relative;
+        z-index: 10;
+        animation-name: chargement;
+        animation-duration: 3s;
+
+
+        @keyframes chargement {
+            0% {
+                rotate: 0deg;
+            }
+
+            50% {
+                rotate: 360deg
+            }
+
+            99% {
+                width: 120px;
+                height: 120px;
+                margin: auto;
+                margin-top: 100px;
+                margin-bottom: 100px;
+                z-index: 10;
+            }
+
+            100% {
+                rotate: 720deg;
+                visibility: hidden;
+                width: 0;
+                height: 0;
+                margin: 0;
+                z-index: -1;
+            }
+        }
+    }
+}
+
+
+.btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     font-size: 1rem;
-    background: linear-gradient(to bottom, #FF79DA, #9356DC);
+    background: $gradient-btn;
     color: white;
     height: 50px;
     width: 218px;
     border-radius: 25px;
     border: none;
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.14);
+    cursor: pointer;
+    position: relative;
+    transition: background 0.3s ease;
 
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 25px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    &:hover {
+        background: linear-gradient(to bottom, #FF9DEA, #A37BFF);
+
+        &::after {
+            opacity: 1;
+        }
+    }
 }
+
+
+
 
 // Head
 .head {
@@ -80,6 +227,7 @@ body {
     display: flex;
     flex-direction: column;
 
+
     .localisation {
         display: flex;
         flex-direction: row;
@@ -92,6 +240,7 @@ body {
         input::placeholder {
             font-weight: bold;
             color: $black;
+            text-align: center;
         }
 
         form {
@@ -123,234 +272,348 @@ body {
             color: #353535;
         }
     }
+}
 
-    // Section Fonctionnement
-    .fonctionnement {
-        font-size: 1.2rem;
-        padding: 25px;
+// Section Fonctionnement
+.fonctionnement {
+    font-size: 1.2rem;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    .step {
         display: flex;
-        flex-direction: column;
-        gap: 25px;
+        background-color: $gray-bg;
+        border-radius: 25px;
+        font-size: 1.2rem;
+        height: 73px;
+        width: 322.49px;
+        padding: 10px 20px 10px 20px;
+        position: relative;
 
-        .step {
+        .sous-step {
             display: flex;
-            background-color: $gray-bg;
-            border-radius: 25px;
-            font-size: 1.2rem;
-            height: 73px;
-            width: 322.49px;
-            padding: 10px 20px 10px 20px;
-            position: relative;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 15px;
+            padding-left: 15px;
 
-            .sous-step {
+            .circle-num {
                 display: flex;
                 flex-direction: row;
-                justify-content: flex-start;
+                justify-content: center;
                 align-items: center;
-                gap: 15px;
-                padding-left: 15px;
-
-                .circle-num {
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: center;
-                    align-items: center;
-                    color: $white;
-                    height: 24px;
-                    width: 24px;
-                    border-radius: 50%;
-                    background-color: $main-color;
-                    position: absolute;
-                    left: -10px;
-                }
-            }
-        }
-    }
-
-    // Restaurant Card
-    .restaurants {
-        background-color: $gray-bg;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 20px;
-        padding: 40px 20px 40px 20px;
-
-        .card {
-            background-color: $white;
-            border-radius: 20px;
-            padding-bottom: 10px;
-            position: relative;
-
-
-            img {
-                width: 100%;
-                height: 200px;
-                border-radius: 20px 20px 0px 0px;
-                object-fit: cover;
-            }
-
-            .etiquette p {
-                background-color: $green;
-                color: #008766;
-                display: inline-block;
-                padding: 5px 10px;
-                font-size: 0.8rem;
+                color: $white;
+                height: 24px;
+                width: 24px;
+                border-radius: 50%;
+                background-color: $main-color;
                 position: absolute;
-                top: 15px;
-                right: 15px;
-            }
-
-            .card-content {
-                display: flex;
-                flex-direction: column;
-                background-color: $white;
-                border-radius: 25px;
-
-                .card-txt {
-                    text-decoration: none;
-                    color: inherit;
-                    display: flex;
-                    flex-direction: column;
-                    position: relative;
-                    padding: 10px;
-                    gap: 4px;
-
-                    .heart {
-                        position: absolute;
-                        top: 15px;
-                        right: 15px;
-
-                    }
-
-                    .card-title {
-                        font-size: 20px;
-                    }
-
-                    .card-subtitle {
-                        font-weight: lighter;
-                    }
-                }
+                left: -10px;
             }
         }
     }
+}
 
-    // Footer
-    .footer {
-        background-color: $dark-gray;
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
+// Restaurant Card
+.card {
+    position: relative;
 
-        .footer-name {
-            color: $white;
-            font-style: italic;
-            font-weight: bold;
-            font-size: 1.5rem;
-            padding-bottom: 15px;
+    .heart {
+        position: absolute;
+        bottom: 50px;
+        left: 350px;
+    }
+}
 
-            p {
-                @include font-shrikhand;
-            }
+.restaurants {
+    background-color: $gray-bg;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 40px 20px 40px 20px;
+
+    .card {
+        background-color: $white;
+        border-radius: 20px;
+        padding-bottom: 10px;
+        position: relative;
+
+
+        img {
+            width: 100%;
+            height: 200px;
+            border-radius: 20px 20px 0px 0px;
+            object-fit: cover;
         }
 
+        .etiquette p {
+            background-color: $green;
+            color: #008766;
+            display: inline-block;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
 
-        .footer-link {
+        .card-content {
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            background-color: $white;
+            border-radius: 25px;
 
-            .no-underline {
+            .card-txt {
                 text-decoration: none;
-            }
+                color: inherit;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                padding: 10px;
+                gap: 4px;
 
-            a {
+
+                .card-subtitle {
+                    font-weight: lighter;
+                }
+            }
+        }
+    }
+}
+
+// Footer
+.footer {
+    background-color: $dark-gray;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    .footer-name {
+        color: $white;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 1.5rem;
+        padding-bottom: 15px;
+
+        p {
+            @include font-shrikhand;
+        }
+    }
+
+    .footer-link {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        .no-underline {
+            text-decoration: none;
+        }
+
+        a {
+            color: $white;
+        }
+
+        .link-icon {
+            font-weight: bold;
+        }
+    }
+}
+
+// Page Restaurant HTML (restau1.html)
+.pp img {
+    height: 275px;
+    object-fit: cover;
+    width: 100%;
+    position: relative;
+
+}
+
+.arrow {
+    position: absolute;
+    left: 30px;
+}
+
+.menu {
+    background-color: #F6F6F6;
+    border-radius: 40px 40px 0 0;
+    margin-top: -50px;
+    position: relative;
+
+    .menu-name {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        padding: 40px 10px 20px 10px;
+        font-size: 1.4rem;
+        position: relative;
+
+        h2 {
+            @include font-shrikhand;
+            font-size: 2rem;
+        }
+
+        .heart {
+            position: absolute;
+            top: 45px;
+            right: 15px;
+        }
+    }
+
+    .menu-catego {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 25px;
+
+        .starter {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            animation-name: fondu;
+            animation-duration: 6.5s;
+            animation-timing-function: ease;
+            animation-fill-mode: forwards;
+
+            @keyframes fondu {
+                0% {
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                100% {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+
+        .maindish {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            animation-name: fondu;
+            animation-duration: 6.5s;
+            animation-timing-function: ease;
+            animation-fill-mode: forwards;
+            animation-delay: 1s;
+            visibility: hidden;
+
+            @keyframes fondu {
+                0% {
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                100% {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+
+        .dessert {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            animation-name: fondu;
+            animation-duration: 6.5s;
+            animation-timing-function: ease;
+            animation-fill-mode: forwards;
+            animation-delay: 2s;
+            visibility: hidden;
+
+            @keyframes fondu {
+                0% {
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                100% {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+
+    .catego-name {
+        width: 50px;
+        border-bottom: 3px $filter-bg-color solid;
+        font-size: 1.5rem;
+    }
+
+    .met-name {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        height: 60px;
+        padding: 10px;
+        background-color: $white;
+        border-radius: 15px;
+        position: relative;
+        transition-property: transform;
+        transition-duration: 0.3s;
+
+        .selection {
+            width: 20%;
+            height: 100%;
+            background-color: $green;
+            border-radius: 0 15px 15px 0;
+            position: absolute;
+            right: 0px;
+            transform: translateX(80%);
+            visibility: hidden;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+
+            .fa-square-check {
+                position: absolute;
+                position: absolute;
+                top: 30px;
+                right: 30px;
+                left: 30px;
+                bottom: 30px;
                 color: $white;
             }
 
-            .link-icon {
-                font-weight: bold;
+            .selection div:nth-child(2) {
+                transform: translateX(80%);
+                visibility: hidden;
+                transition: transform 0.5s ease, opacity 0.5s ease;
             }
         }
-    }
 
-    // Page Restaurant HTML (restau1.html)
-    .pp img {
-        height: 275px;
-        object-fit: cover;
-        width: 100%;
-        position: relative;
+        .met-subname {
+            font-size: 1.2rem;
+        }
 
-    }
-
-    .arrow {
-        position: absolute;
-        left: 30px;
-    }
-
-    .menu {
-        background-color: #F6F6F6;
-        border-radius: 40px 40px 0 0;
-        position: relative;
-        margin-top: -50px;
-
-        .menu-name {
+        .subtitle-met-name {
             display: flex;
             flex-direction: row;
-            align-items: center;
-            justify-content: space-around;
-            gap: 20px;
-            padding: 40px 10px 20px 10px;
-            font-size: 1.4rem;
+            justify-content: space-between;
+            font-weight: lighter;
 
-            h1 {
-                @include font-shrikhand;
+            .prix {
+                font-weight: 900;
             }
         }
 
-        .menu-catego {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            padding: 25px;
-
-            .catego-name {
-                width: 50px;
-                border-bottom: 3px $filter-bg-color solid;
-                font-size: 1.5rem;
+        &:focus {
+            .selection {
+                visibility: visible;
+                transform: translateX(0);
             }
-
-            .met-name {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                gap: 5px;
-                height: 60px;
-                padding: 10px;
-                background-color: $white;
-                border-radius: 15px;
-
-                .met-subname {
-                    font-size: 1.2rem;
-                }
-
-                .subtitle-met-name {
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    font-weight: lighter;
-
-                    .prix {
-                        font-weight: 900;
-                    }
-                }
-            }
-        }
-
-        .btn-cta {
-            display: flex;
-            justify-content: center;
-            padding: 20px 0 40px 0;
         }
     }
+}
+
+.btn-cta {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 40px 0;
 }

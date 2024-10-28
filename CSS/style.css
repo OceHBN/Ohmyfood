@@ -9,9 +9,15 @@
 }
 
 h1,
-p,
-h2 {
+h2,
+h3 {
   margin: 0;
+  font-size: 1.5rem;
+}
+
+p {
+  margin: 0;
+  font-size: 1.5;
 }
 
 a {
@@ -26,9 +32,108 @@ a {
 body {
   max-width: 430px;
   margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.heart {
+  cursor: pointer;
+}
+.heart input[type=checkbox] {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  left: 1px;
+  bottom: 1px;
+  margin: 0;
+  padding: 0;
+  z-index: -1;
+  cursor: pointer;
+}
+.heart .fa-heart {
+  border-color: #101010;
+}
+.heart input[type=checkbox]:checked + .fa-heart {
+  color: #FF79DA;
+}
+
+.load {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  animation: apparition 3s both;
+  z-index: 10;
+}
+@keyframes apparition {
+  99% {
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    z-index: -10;
+  }
+}
+.load .loader {
+  display: block;
+  background-color: white;
+  border: 16px dotted;
+  border-color: #9356DC;
+  width: 120px;
+  height: 120px;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border-radius: 50%;
+  position: relative;
+  z-index: 10;
+  animation-name: chargement;
+  animation-duration: 3s;
+}
+@keyframes chargement {
+  0% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: 360deg;
+  }
+  99% {
+    width: 120px;
+    height: 120px;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    z-index: 10;
+  }
+  100% {
+    rotate: 720deg;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    margin: 0;
+    z-index: -1;
+  }
 }
 
 .btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   font-size: 1rem;
   background: linear-gradient(to bottom, #FF79DA, #9356DC);
   color: white;
@@ -37,6 +142,27 @@ body {
   border-radius: 25px;
   border: none;
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.14);
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s ease;
+}
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.btn:hover {
+  background: linear-gradient(to bottom, #FF9DEA, #A37BFF);
+}
+.btn:hover::after {
+  opacity: 1;
 }
 
 .head {
@@ -66,10 +192,12 @@ body {
 .intro .localisation input::-moz-placeholder {
   font-weight: bold;
   color: black;
+  text-align: center;
 }
 .intro .localisation input::placeholder {
   font-weight: bold;
   color: black;
+  text-align: center;
 }
 .intro .localisation form {
   display: flex;
@@ -96,14 +224,15 @@ body {
 .intro .intro-txt p {
   color: #353535;
 }
-.intro .fonctionnement {
+
+.fonctionnement {
   font-size: 1.2rem;
   padding: 25px;
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
-.intro .fonctionnement .step {
+.fonctionnement .step {
   display: flex;
   background-color: #f4f4f4;
   border-radius: 25px;
@@ -113,7 +242,7 @@ body {
   padding: 10px 20px 10px 20px;
   position: relative;
 }
-.intro .fonctionnement .step .sous-step {
+.fonctionnement .step .sous-step {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -121,7 +250,7 @@ body {
   gap: 15px;
   padding-left: 15px;
 }
-.intro .fonctionnement .step .sous-step .circle-num {
+.fonctionnement .step .sous-step .circle-num {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -134,7 +263,17 @@ body {
   position: absolute;
   left: -10px;
 }
-.intro .restaurants {
+
+.card {
+  position: relative;
+}
+.card .heart {
+  position: absolute;
+  bottom: 50px;
+  left: 350px;
+}
+
+.restaurants {
   background-color: #f4f4f4;
   display: flex;
   flex-direction: column;
@@ -142,20 +281,20 @@ body {
   gap: 20px;
   padding: 40px 20px 40px 20px;
 }
-.intro .restaurants .card {
+.restaurants .card {
   background-color: white;
   border-radius: 20px;
   padding-bottom: 10px;
   position: relative;
 }
-.intro .restaurants .card img {
+.restaurants .card img {
   width: 100%;
   height: 200px;
   border-radius: 20px 20px 0px 0px;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.intro .restaurants .card .etiquette p {
+.restaurants .card .etiquette p {
   background-color: #99E2D0;
   color: #008766;
   display: inline-block;
@@ -165,13 +304,13 @@ body {
   top: 15px;
   right: 15px;
 }
-.intro .restaurants .card .card-content {
+.restaurants .card .card-content {
   display: flex;
   flex-direction: column;
   background-color: white;
   border-radius: 25px;
 }
-.intro .restaurants .card .card-content .card-txt {
+.restaurants .card .card-content .card-txt {
   text-decoration: none;
   color: inherit;
   display: flex;
@@ -180,88 +319,151 @@ body {
   padding: 10px;
   gap: 4px;
 }
-.intro .restaurants .card .card-content .card-txt .heart {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
-.intro .restaurants .card .card-content .card-txt .card-title {
-  font-size: 20px;
-}
-.intro .restaurants .card .card-content .card-txt .card-subtitle {
+.restaurants .card .card-content .card-txt .card-subtitle {
   font-weight: lighter;
 }
-.intro .footer {
+
+.footer {
   background-color: #353535;
   display: flex;
   flex-direction: column;
   padding: 20px;
 }
-.intro .footer .footer-name {
+.footer .footer-name {
   color: white;
   font-style: italic;
   font-weight: bold;
   font-size: 1.5rem;
   padding-bottom: 15px;
 }
-.intro .footer .footer-name p {
+.footer .footer-name p {
   font-family: "Shrikhand", serif;
 }
-.intro .footer .footer-link {
+.footer .footer-link {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
-.intro .footer .footer-link .no-underline {
+.footer .footer-link .no-underline {
   text-decoration: none;
 }
-.intro .footer .footer-link a {
+.footer .footer-link a {
   color: white;
 }
-.intro .footer .footer-link .link-icon {
+.footer .footer-link .link-icon {
   font-weight: bold;
 }
-.intro .pp img {
+
+.pp img {
   height: 275px;
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
   position: relative;
 }
-.intro .arrow {
+
+.arrow {
   position: absolute;
   left: 30px;
 }
-.intro .menu {
+
+.menu {
   background-color: #F6F6F6;
   border-radius: 40px 40px 0 0;
-  position: relative;
   margin-top: -50px;
+  position: relative;
 }
-.intro .menu .menu-name {
+.menu .menu-name {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
   gap: 20px;
   padding: 40px 10px 20px 10px;
   font-size: 1.4rem;
+  position: relative;
 }
-.intro .menu .menu-name h1 {
+.menu .menu-name h2 {
   font-family: "Shrikhand", serif;
+  font-size: 2rem;
 }
-.intro .menu .menu-catego {
+.menu .menu-name .heart {
+  position: absolute;
+  top: 45px;
+  right: 15px;
+}
+.menu .menu-catego {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 25px;
 }
-.intro .menu .menu-catego .catego-name {
+.menu .menu-catego .starter {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation-name: fondu;
+  animation-duration: 6.5s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+@keyframes fondu {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.menu .menu-catego .maindish {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation-name: fondu;
+  animation-duration: 6.5s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+  visibility: hidden;
+}
+@keyframes fondu {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.menu .menu-catego .dessert {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation-name: fondu;
+  animation-duration: 6.5s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-delay: 2s;
+  visibility: hidden;
+}
+@keyframes fondu {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.menu .catego-name {
   width: 50px;
   border-bottom: 3px #99E2D0 solid;
   font-size: 1.5rem;
 }
-.intro .menu .menu-catego .met-name {
+.menu .met-name {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -270,20 +472,53 @@ body {
   padding: 10px;
   background-color: white;
   border-radius: 15px;
+  position: relative;
+  transition-property: transform;
+  transition-duration: 0.3s;
 }
-.intro .menu .menu-catego .met-name .met-subname {
+.menu .met-name .selection {
+  width: 20%;
+  height: 100%;
+  background-color: #99E2D0;
+  border-radius: 0 15px 15px 0;
+  position: absolute;
+  right: 0px;
+  transform: translateX(80%);
+  visibility: hidden;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.menu .met-name .selection .fa-square-check {
+  position: absolute;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  left: 30px;
+  bottom: 30px;
+  color: white;
+}
+.menu .met-name .selection .selection div:nth-child(2) {
+  transform: translateX(80%);
+  visibility: hidden;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.menu .met-name .met-subname {
   font-size: 1.2rem;
 }
-.intro .menu .menu-catego .met-name .subtitle-met-name {
+.menu .met-name .subtitle-met-name {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   font-weight: lighter;
 }
-.intro .menu .menu-catego .met-name .subtitle-met-name .prix {
+.menu .met-name .subtitle-met-name .prix {
   font-weight: 900;
 }
-.intro .menu .btn-cta {
+.menu .met-name:focus .selection {
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.btn-cta {
   display: flex;
   justify-content: center;
   padding: 20px 0 40px 0;
