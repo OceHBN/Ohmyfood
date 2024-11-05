@@ -48,43 +48,18 @@ a {
     text-decoration: none;
 }
 
-.fa-solid {
-    color: $black;
+body {
+    margin: 0;
 }
 
-body {
-    max-width: 430px;
-    margin: 0;
-    position: relative;
-    z-index: 1;
+main {
+    min-width: 320px;
+    box-sizing: border-box;
+    padding: 0;
+    width: 100%;
 }
 
 // Animations & Transition
-
-.heart {
-    cursor: pointer;
-
-    input[type="checkbox"] {
-        position: absolute;
-        top: 1px;
-        right: 1px;
-        left: 1px;
-        bottom: 1px;
-        margin: 0;
-        padding: 0;
-        z-index: -1;
-        cursor: pointer;
-    }
-
-    .fa-heart {
-        border-color: #101010;
-    }
-
-    input[type="checkbox"]:checked+.fa-heart {
-        color: $main-bg-color;
-    }
-
-}
 
 .load {
     background-color: white;
@@ -167,7 +142,6 @@ body {
     }
 }
 
-
 .btn {
     display: flex;
     flex-direction: column;
@@ -207,8 +181,21 @@ body {
     }
 }
 
+.heart {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    padding-right: 25px;
 
-
+    .fa-full:hover {
+        color: transparent;
+        background-clip: text;
+        background-image: linear-gradient(180deg, rgb(147, 86, 220) -11%, rgb(255, 121, 218) 123%);
+        opacity: 1;
+        transition-duration: 800ms;
+        cursor: pointer;
+    }
+}
 
 // Head
 .head {
@@ -234,7 +221,7 @@ body {
         align-items: center;
         justify-content: center;
         background-color: #EAEAEA;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: inset -6px -5px 6px rgba(0, 0, 0, 0.1);
         height: 50px;
 
         input::placeholder {
@@ -276,15 +263,25 @@ body {
 
 // Section Fonctionnement
 .fonctionnement {
-    font-size: 1.2rem;
-    padding: 25px;
+
     display: flex;
     flex-direction: column;
     gap: 25px;
+    padding: 25px;
+
+    .step-media {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        font-size: 1.2rem;
+        padding-left: 5px;
+        width: 100%;
+    }
 
     .step {
         display: flex;
         background-color: $gray-bg;
+        box-shadow: 7px 7px 6px rgba(0, 0, 0, 0.1);
         border-radius: 25px;
         font-size: 1.2rem;
         height: 73px;
@@ -335,6 +332,13 @@ body {
     justify-content: space-between;
     gap: 20px;
     padding: 40px 20px 40px 20px;
+
+    .restaurants-media {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+    }
 
     .card {
         background-color: $white;
@@ -550,46 +554,47 @@ body {
     .met-name {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         gap: 5px;
         height: 60px;
         padding: 10px;
         background-color: $white;
         border-radius: 15px;
+        cursor: pointer;
         position: relative;
-        transition-property: transform;
-        transition-duration: 0.3s;
 
         .selection {
-            width: 20%;
-            height: 100%;
-            background-color: $green;
-            border-radius: 0 15px 15px 0;
             position: absolute;
             right: 0px;
+            bottom: 0px;
+            top: -20px;
+            left: 260px;
+            width: 100px;
+            height: 100%;
+            background-color: $green;
+            border-radius: 10px;
+            margin: 20px;
             transform: translateX(80%);
             visibility: hidden;
             transition: transform 0.5s ease, opacity 0.5s ease;
 
             .fa-square-check {
                 position: absolute;
-                position: absolute;
                 top: 30px;
-                right: 30px;
-                left: 30px;
-                bottom: 30px;
-                color: $white;
+                right: 40px;
             }
+        }
 
-            .selection div:nth-child(2) {
-                transform: translateX(80%);
-                visibility: hidden;
-                transition: transform 0.5s ease, opacity 0.5s ease;
-            }
+        &:hover .selection {
+            transform: translateX(0%);
+            visibility: visible;
         }
 
         .met-subname {
             font-size: 1.2rem;
+            white-space: nowrap;
+            overflow: visible;
+            text-overflow: clip;
+            width: auto;
         }
 
         .subtitle-met-name {
@@ -597,17 +602,31 @@ body {
             flex-direction: row;
             justify-content: space-between;
             font-weight: lighter;
+            white-space: nowrap;
+            overflow: visible;
+            text-overflow: clip;
+            width: auto;
 
             .prix {
                 font-weight: 900;
+                transform: translateX(0);
+                transition: transform 0.5s ease;
             }
         }
 
-        &:focus {
-            .selection {
-                visibility: visible;
-                transform: translateX(0);
-            }
+        /* hover des éléments*/
+        &:hover .met-subname {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        &:hover .subtitle-met-name {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        &:hover .subtitle-met-name .prix {
+            transform: translateX(-100px);
         }
     }
 }
@@ -616,4 +635,129 @@ body {
     display: flex;
     justify-content: center;
     padding: 20px 0 40px 0;
+}
+
+/********Media Queries*******/
+//Desktop & Tablette devices
+@media (min-width: 768px) {
+
+    body {
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    .fonctionnement {
+        height: 228px;
+        display: flex;
+        align-items: flex-start;
+        padding-left: 50px;
+        gap: 25px;
+        justify-content: center;
+
+        .step-media {
+            display: flex;
+            flex-direction: row;
+            gap: 50px;
+        }
+    }
+
+    .card {
+        position: relative;
+
+        .heart {
+            position: absolute;
+            bottom: 25px;
+            left: 450px;
+        }
+    }
+
+    .restaurants {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 10px;
+        max-width: 100%;
+
+        h2 {
+            padding-left: 50px;
+        }
+
+        .restaurants-media {
+            display: grid;
+            grid-template-columns: repeat(2, 0fr);
+            grid-gap: 70px;
+            width: 100%;
+            justify-content: center;
+
+            .card {
+                width: 490px;
+                gap: 0px;
+                border-radius: 15px;
+                opacity: 0px;
+
+                .card-txt {
+                    padding: 20px;
+                }
+            }
+        }
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 50px;
+        align-items: center;
+        height: 114px;
+        max-width: 100%;
+
+        .footer-name {
+            font-size: 1rem;
+            padding: 0 20px 0 0;
+        }
+
+
+        .footer-link {
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+        }
+    }
+
+    .pp img {
+        height: 383px;
+    }
+
+    .menu {
+        width: 75%;
+        margin-left: 10%;
+
+        .menu-name {
+            justify-content: center;
+            position: relative;
+
+
+            .heart {
+                position: absolute;
+                top: 48px;
+                right: 20%;
+            }
+        }
+
+        .menu-catego {
+            padding: 25px 150px 25px 150px;
+
+            .selection {
+                position: absolute;
+                right: -10px;
+                bottom: 0px;
+                top: -20px;
+                left: 90%;
+            }
+
+            .color-checkbox:checked+.selection+.met-subname+.subtitle-met-name .prix {
+                transform-origin: right;
+                transition: all 450ms ease;
+                transform: translateX(-80px);
+            }
+        }
+    }
 }
