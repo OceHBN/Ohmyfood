@@ -50,10 +50,14 @@ a {
 
 body {
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 main {
     min-width: 320px;
+    max-width: 1500px;
     box-sizing: border-box;
     padding: 0;
     width: 100%;
@@ -187,12 +191,21 @@ main {
     font-size: 25px;
     padding-right: 25px;
 
-    .fa-full:hover {
+    i {
+        position: absolute;
+    }
+
+    .heart-full {
+        opacity: 0;
+        transition: all 300ms ease-in;
+    }
+
+    .heart-full:hover {
         color: transparent;
         background-clip: text;
         background-image: linear-gradient(180deg, rgb(147, 86, 220) -11%, rgb(255, 121, 218) 123%);
         opacity: 1;
-        transition-duration: 800ms;
+        transition: all 800ms ease-in;
         cursor: pointer;
     }
 }
@@ -207,12 +220,14 @@ main {
     gap: 20px;
     padding: 10px;
     position: relative;
+    width: 100%;
 }
 
 // Section Intro
 .intro {
     display: flex;
     flex-direction: column;
+    width: 100%;
 
 
     .localisation {
@@ -266,16 +281,16 @@ main {
 
     display: flex;
     flex-direction: column;
-    gap: 25px;
     padding: 25px;
+    gap: 25px;
 
     .step-media {
         display: flex;
         flex-direction: column;
-        gap: 25px;
         font-size: 1.2rem;
+        gap: 25px;
         padding-left: 5px;
-        width: 100%;
+        width: 90%;
     }
 
     .step {
@@ -332,10 +347,12 @@ main {
     justify-content: space-between;
     gap: 20px;
     padding: 40px 20px 40px 20px;
+    width: 100%;
 
     .restaurants-media {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         gap: 20px;
 
     }
@@ -345,6 +362,7 @@ main {
         border-radius: 20px;
         padding-bottom: 10px;
         position: relative;
+        width: 90%;
 
 
         img {
@@ -395,6 +413,7 @@ main {
     display: flex;
     flex-direction: column;
     padding: 20px;
+    width: 100%;
 
     .footer-name {
         color: $white;
@@ -463,8 +482,8 @@ main {
 
         .heart {
             position: absolute;
-            top: 45px;
-            right: 15px;
+            top: 60px;
+            right: 30px;
         }
     }
 
@@ -553,82 +572,69 @@ main {
 
     .met-name {
         display: flex;
-        flex-direction: column;
-        gap: 5px;
+        justify-content: space-between;
         height: 60px;
-        padding: 10px;
         background-color: $white;
         border-radius: 15px;
         cursor: pointer;
-        position: relative;
 
-        .selection {
-            position: absolute;
-            right: 0px;
-            bottom: 0px;
-            top: -20px;
-            left: 260px;
-            width: 100px;
-            height: 100%;
-            background-color: $green;
-            border-radius: 10px;
-            margin: 20px;
-            transform: translateX(80%);
-            visibility: hidden;
-            transition: transform 0.5s ease, opacity 0.5s ease;
-
-            .fa-square-check {
-                position: absolute;
-                top: 30px;
-                right: 40px;
-            }
-        }
-
-        &:hover .selection {
-            transform: translateX(0%);
-            visibility: visible;
-        }
-
-        .met-subname {
-            font-size: 1.2rem;
+        .met-description {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding-left: 15px;
+            padding-top: 5px;
             white-space: nowrap;
             overflow: visible;
             text-overflow: clip;
-            width: auto;
         }
 
-        .subtitle-met-name {
+        .prix-select {
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
-            font-weight: lighter;
-            white-space: nowrap;
-            overflow: visible;
-            text-overflow: clip;
-            width: auto;
+            justify-content: flex-end;
+            align-items: flex-end;
+            gap: 10px;
 
             .prix {
-                font-weight: 900;
-                transform: translateX(0);
-                transition: transform 0.5s ease;
+                font-weight: bolder;
+                display: flex;
+                padding-bottom: 5px;
+                padding-right: 20px;
             }
         }
 
-        /* hover des éléments*/
-        &:hover .met-subname {
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+        .selection {
+            width: 60px;
+            height: 100%;
+            background-color: $green;
+            position: relative;
+            border-radius: 0 15px 15px 0;
+            display: none;
+            transition: transform 300ms ease, display 3s ease;
 
-        &:hover .subtitle-met-name {
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        &:hover .subtitle-met-name .prix {
-            transform: translateX(-100px);
+            .fa-circle-check {
+                position: absolute;
+                bottom: 25px;
+                left: 20px;
+                color: $white;
+            }
         }
     }
+
+    .met-name:hover {
+        .selection {
+            display: block;
+            transition-duration: 3000ms;
+            transform: translateX(10px);
+        }
+    }
+
+    .met-description:hover {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
 }
 
 .btn-cta {
@@ -646,18 +652,21 @@ main {
         max-width: 100%;
     }
 
+    //Page d'acceuil//
     .fonctionnement {
         height: 228px;
         display: flex;
         align-items: flex-start;
-        padding-left: 50px;
         gap: 25px;
         justify-content: center;
+        max-width: 1500px;
+        margin-left: 90px;
 
         .step-media {
             display: flex;
             flex-direction: row;
             gap: 50px;
+
         }
     }
 
@@ -675,7 +684,8 @@ main {
         display: flex;
         flex-direction: column;
         padding-bottom: 10px;
-        max-width: 100%;
+        max-width: 1500px;
+        padding: 20px 0 20px 0;
 
         h2 {
             padding-left: 50px;
@@ -684,15 +694,12 @@ main {
         .restaurants-media {
             display: grid;
             grid-template-columns: repeat(2, 0fr);
-            grid-gap: 70px;
-            width: 100%;
             justify-content: center;
 
             .card {
                 width: 490px;
                 gap: 0px;
                 border-radius: 15px;
-                opacity: 0px;
 
                 .card-txt {
                     padding: 20px;
@@ -707,7 +714,8 @@ main {
         gap: 50px;
         align-items: center;
         height: 114px;
-        max-width: 100%;
+        max-width: 1500px;
+        padding: 0;
 
         .footer-name {
             font-size: 1rem;
@@ -722,6 +730,7 @@ main {
         }
     }
 
+    //Pages Restaurant//
     .pp img {
         height: 383px;
     }
@@ -731,33 +740,21 @@ main {
         margin-left: 10%;
 
         .menu-name {
+            display: flex;
+            flex-direction: row;
             justify-content: center;
             position: relative;
 
 
             .heart {
                 position: absolute;
-                top: 48px;
+                top: 60px;
                 right: 20%;
             }
         }
 
         .menu-catego {
             padding: 25px 150px 25px 150px;
-
-            .selection {
-                position: absolute;
-                right: -10px;
-                bottom: 0px;
-                top: -20px;
-                left: 90%;
-            }
-
-            .color-checkbox:checked+.selection+.met-subname+.subtitle-met-name .prix {
-                transform-origin: right;
-                transition: all 450ms ease;
-                transform: translateX(-80px);
-            }
         }
     }
 }
