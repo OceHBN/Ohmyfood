@@ -25,9 +25,9 @@ $gradient-btn: linear-gradient(to bottom, #FF79DA, #9356DC);
 }
 
 :root {
-    --main-color: $main-color;
-    --main-bg-color: $main-bg-color;
-    --filter-bg-color: $filter-bg-color;
+    --main-color: #{main-color};
+    --main-bg-color: #{main-bg-color};
+    --filter-bg-color: #{filter-bg-color};
 }
 
 h1,
@@ -39,7 +39,7 @@ h3 {
 
 p {
     margin: 0;
-    font-size: 1.5;
+    font-size: 1.5rem;
 }
 
 
@@ -51,13 +51,13 @@ a {
 body {
     margin: 0;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     min-width: 320px;
-    max-width: 1500px;
     box-sizing: border-box;
     padding: 0;
     width: 100%;
@@ -344,16 +344,22 @@ main {
     background-color: $gray-bg;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 40px 20px 40px 20px;
     width: 100%;
+
+    .restaurants-details {
+        max-width: 1500px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 40px 20px 40px 20px;
+    }
 
     .restaurants-media {
         display: flex;
         flex-direction: column;
         justify-content: center;
         gap: 20px;
+
 
     }
 
@@ -362,7 +368,7 @@ main {
         border-radius: 20px;
         padding-bottom: 10px;
         position: relative;
-        width: 90%;
+        width: 100%;
 
 
         img {
@@ -412,7 +418,6 @@ main {
     background-color: $dark-gray;
     display: flex;
     flex-direction: column;
-    padding: 20px;
     width: 100%;
 
     .footer-name {
@@ -420,7 +425,7 @@ main {
         font-style: italic;
         font-weight: bold;
         font-size: 1.5rem;
-        padding-bottom: 15px;
+        padding: 20px;
 
         p {
             @include font-shrikhand;
@@ -430,7 +435,8 @@ main {
     .footer-link {
         display: flex;
         flex-direction: column;
-        gap: 5px;
+        gap: 10px;
+        padding: 20px;
 
         .no-underline {
             text-decoration: none;
@@ -442,205 +448,231 @@ main {
 
         .link-icon {
             font-weight: bold;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
         }
     }
 }
 
 // Page Restaurant HTML (restau1.html)
-.pp img {
-    height: 275px;
-    object-fit: cover;
+.restaurant-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0;
     width: 100%;
-    position: relative;
 
-}
+    .pp {
+        width: 100%;
+    }
 
-.arrow {
-    position: absolute;
-    left: 30px;
-}
-
-.menu {
-    background-color: #F6F6F6;
-    border-radius: 40px 40px 0 0;
-    margin-top: -50px;
-    position: relative;
-
-    .menu-name {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 20px;
-        padding: 40px 10px 20px 10px;
-        font-size: 1.4rem;
+    .pp img {
+        object-fit: cover;
+        width: 100%;
         position: relative;
 
-        h2 {
-            @include font-shrikhand;
-            font-size: 2rem;
-        }
-
-        .heart {
-            position: absolute;
-            top: 60px;
-            right: 30px;
-        }
     }
 
-    .menu-catego {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding: 25px;
-
-        .starter {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            animation-name: fondu;
-            animation-duration: 6.5s;
-            animation-timing-function: ease;
-            animation-fill-mode: forwards;
-
-            @keyframes fondu {
-                0% {
-                    opacity: 0;
-                    visibility: hidden;
-                }
-
-                100% {
-                    opacity: 1;
-                    visibility: visible;
-                }
-            }
-        }
-
-        .maindish {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            animation-name: fondu;
-            animation-duration: 6.5s;
-            animation-timing-function: ease;
-            animation-fill-mode: forwards;
-            animation-delay: 1s;
-            visibility: hidden;
-
-            @keyframes fondu {
-                0% {
-                    opacity: 0;
-                    visibility: hidden;
-                }
-
-                100% {
-                    opacity: 1;
-                    visibility: visible;
-                }
-            }
-        }
-
-        .dessert {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            animation-name: fondu;
-            animation-duration: 6.5s;
-            animation-timing-function: ease;
-            animation-fill-mode: forwards;
-            animation-delay: 2s;
-            visibility: hidden;
-
-            @keyframes fondu {
-                0% {
-                    opacity: 0;
-                    visibility: hidden;
-                }
-
-                100% {
-                    opacity: 1;
-                    visibility: visible;
-                }
-            }
-        }
+    .arrow {
+        position: absolute;
+        left: -50px;
     }
 
-    .catego-name {
-        width: 50px;
-        border-bottom: 3px $filter-bg-color solid;
-        font-size: 1.5rem;
+    .menu-restaurant {
+        width: 100%;
     }
 
-    .met-name {
-        display: flex;
-        justify-content: space-between;
-        height: 60px;
-        background-color: $white;
-        border-radius: 15px;
-        cursor: pointer;
+    .menu {
+        background-color: #F6F6F6;
+        border-radius: 40px 40px 0 0;
+        margin-top: -50px;
+        position: relative;
 
-        .met-description {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            padding-left: 15px;
-            padding-top: 5px;
-            white-space: nowrap;
-            overflow: visible;
-            text-overflow: clip;
-        }
-
-        .prix-select {
+        .menu-name {
             display: flex;
             flex-direction: row;
-            justify-content: flex-end;
-            align-items: flex-end;
-            gap: 10px;
-
-            .prix {
-                font-weight: bolder;
-                display: flex;
-                padding-bottom: 5px;
-                padding-right: 20px;
-            }
-        }
-
-        .selection {
-            width: 60px;
-            height: 100%;
-            background-color: $green;
+            align-items: center;
+            gap: 20px;
+            padding: 40px 10px 20px 10px;
+            font-size: 1.4rem;
             position: relative;
-            border-radius: 0 15px 15px 0;
-            display: none;
-            transition: transform 300ms ease, display 3s ease;
 
-            .fa-circle-check {
+            h2 {
+                @include font-shrikhand;
+                font-size: 2rem;
+            }
+
+            .heart {
                 position: absolute;
-                bottom: 25px;
-                left: 20px;
-                color: $white;
+                top: 60px;
+                right: 30px;
             }
         }
-    }
 
-    .met-name:hover {
-        .selection {
-            display: block;
-            transition-duration: 3000ms;
-            transform: translateX(10px);
+        .menu-catego {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 25px;
+
+            .starter {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                animation-name: fondu;
+                animation-duration: 6.5s;
+                animation-timing-function: ease;
+                animation-fill-mode: forwards;
+
+                @keyframes fondu {
+                    0% {
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+
+                    100% {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+
+            .maindish {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                animation-name: fondu;
+                animation-duration: 6.5s;
+                animation-timing-function: ease;
+                animation-fill-mode: forwards;
+                animation-delay: 1s;
+                visibility: hidden;
+
+                @keyframes fondu {
+                    0% {
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+
+                    100% {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+
+            .dessert {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                animation-name: fondu;
+                animation-duration: 6.5s;
+                animation-timing-function: ease;
+                animation-fill-mode: forwards;
+                animation-delay: 2s;
+                visibility: hidden;
+
+                @keyframes fondu {
+                    0% {
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+
+                    100% {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
         }
+
+        .catego-name {
+            width: 50px;
+            border-bottom: 3px $filter-bg-color solid;
+            font-size: 1.5rem;
+        }
+
+        .met-name {
+            display: flex;
+            justify-content: space-between;
+            height: 60px;
+            background-color: $white;
+            border-radius: 15px;
+            cursor: pointer;
+            overflow: hidden;
+
+            .met-description {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                padding-left: 15px;
+                padding-top: 5px;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
+            h3,
+            p {
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            p {
+                font-size: 1rem;
+                font-weight: lighter;
+            }
+
+            .prix-select {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                align-items: flex-end;
+                gap: 10px;
+
+                .prix {
+                    font-weight: bolder;
+                    display: flex;
+                    padding-bottom: 5px;
+                    padding-right: 20px;
+                }
+            }
+
+            .selection {
+                width: 60px;
+                height: 100%;
+                background-color: $green;
+                position: relative;
+                border-radius: 0 15px 15px 0;
+                margin-right: -60px;
+                opacity: 0;
+                transition: all 500ms ease;
+
+                .fa-circle-check {
+                    position: absolute;
+                    bottom: 25px;
+                    left: 20px;
+                    color: $white;
+                }
+            }
+        }
+
+        .met-name:hover {
+            .selection {
+                opacity: 1;
+                margin-right: 0;
+            }
+        }
+
     }
 
-    .met-description:hover {
-        overflow: hidden;
-        text-overflow: ellipsis;
+    .btn-cta {
+        display: flex;
+        justify-content: center;
+        padding: 20px 0 40px 0;
     }
-
-}
-
-.btn-cta {
-    display: flex;
-    justify-content: center;
-    padding: 20px 0 40px 0;
 }
 
 /********Media Queries*******/
@@ -659,13 +691,14 @@ main {
         align-items: flex-start;
         gap: 25px;
         justify-content: center;
-        max-width: 1500px;
-        margin-left: 90px;
+        width: 100%;
+        padding: 0 0 0 50px;
 
         .step-media {
             display: flex;
             flex-direction: row;
             gap: 50px;
+            max-width: 1500px;
 
         }
     }
@@ -684,11 +717,14 @@ main {
         display: flex;
         flex-direction: column;
         padding-bottom: 10px;
-        max-width: 1500px;
         padding: 20px 0 20px 0;
 
         h2 {
             padding-left: 50px;
+        }
+
+        .restaurants-details {
+            max-width: 1500px;
         }
 
         .restaurants-media {
@@ -714,12 +750,12 @@ main {
         gap: 50px;
         align-items: center;
         height: 114px;
-        max-width: 1500px;
+        width: 100%;
         padding: 0;
 
         .footer-name {
             font-size: 1rem;
-            padding: 0 20px 0 0;
+            padding: 30px;
         }
 
 

@@ -3,9 +3,9 @@
 }
 
 :root {
-  --main-color: $main-color;
-  --main-bg-color: $main-bg-color;
-  --filter-bg-color: $filter-bg-color;
+  --main-color: main-color;
+  --main-bg-color: main-bg-color;
+  --filter-bg-color: filter-bg-color;
 }
 
 h1,
@@ -17,7 +17,7 @@ h3 {
 
 p {
   margin: 0;
-  font-size: 1.5;
+  font-size: 1.5rem;
 }
 
 a {
@@ -28,13 +28,13 @@ a {
 body {
   margin: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   min-width: 320px;
-  max-width: 1500px;
   box-sizing: border-box;
   padding: 0;
   width: 100%;
@@ -293,10 +293,14 @@ main {
   background-color: #f4f4f4;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  width: 100%;
+}
+.restaurants .restaurants-details {
+  max-width: 1500px;
+  display: flex;
+  flex-direction: column;
   gap: 20px;
   padding: 40px 20px 40px 20px;
-  width: 100%;
 }
 .restaurants .restaurants-media {
   display: flex;
@@ -309,7 +313,7 @@ main {
   border-radius: 20px;
   padding-bottom: 10px;
   position: relative;
-  width: 90%;
+  width: 100%;
 }
 .restaurants .card img {
   width: 100%;
@@ -351,7 +355,6 @@ main {
   background-color: #353535;
   display: flex;
   flex-direction: column;
-  padding: 20px;
   width: 100%;
 }
 .footer .footer-name {
@@ -359,7 +362,7 @@ main {
   font-style: italic;
   font-weight: bold;
   font-size: 1.5rem;
-  padding-bottom: 15px;
+  padding: 20px;
 }
 .footer .footer-name p {
   font-family: "Shrikhand", serif;
@@ -367,7 +370,8 @@ main {
 .footer .footer-link {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
+  padding: 20px;
 }
 .footer .footer-link .no-underline {
   text-decoration: none;
@@ -377,28 +381,43 @@ main {
 }
 .footer .footer-link .link-icon {
   font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
 }
 
-.pp img {
-  height: 275px;
+.restaurant-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0;
+  width: 100%;
+}
+.restaurant-page .pp {
+  width: 100%;
+}
+.restaurant-page .pp img {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
   position: relative;
 }
-
-.arrow {
+.restaurant-page .arrow {
   position: absolute;
-  left: 30px;
+  left: -50px;
 }
-
-.menu {
+.restaurant-page .menu-restaurant {
+  width: 100%;
+}
+.restaurant-page .menu {
   background-color: #F6F6F6;
   border-radius: 40px 40px 0 0;
   margin-top: -50px;
   position: relative;
 }
-.menu .menu-name {
+.restaurant-page .menu .menu-name {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -407,22 +426,22 @@ main {
   font-size: 1.4rem;
   position: relative;
 }
-.menu .menu-name h2 {
+.restaurant-page .menu .menu-name h2 {
   font-family: "Shrikhand", serif;
   font-size: 2rem;
 }
-.menu .menu-name .heart {
+.restaurant-page .menu .menu-name .heart {
   position: absolute;
   top: 60px;
   right: 30px;
 }
-.menu .menu-catego {
+.restaurant-page .menu .menu-catego {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 25px;
 }
-.menu .menu-catego .starter {
+.restaurant-page .menu .menu-catego .starter {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -441,7 +460,7 @@ main {
     visibility: visible;
   }
 }
-.menu .menu-catego .maindish {
+.restaurant-page .menu .menu-catego .maindish {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -462,7 +481,7 @@ main {
     visibility: visible;
   }
 }
-.menu .menu-catego .dessert {
+.restaurant-page .menu .menu-catego .dessert {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -483,68 +502,72 @@ main {
     visibility: visible;
   }
 }
-.menu .catego-name {
+.restaurant-page .menu .catego-name {
   width: 50px;
   border-bottom: 3px #99E2D0 solid;
   font-size: 1.5rem;
 }
-.menu .met-name {
+.restaurant-page .menu .met-name {
   display: flex;
   justify-content: space-between;
   height: 60px;
   background-color: white;
   border-radius: 15px;
   cursor: pointer;
+  overflow: hidden;
 }
-.menu .met-name .met-description {
+.restaurant-page .menu .met-name .met-description {
   display: flex;
   flex-direction: column;
   gap: 5px;
   padding-left: 15px;
   padding-top: 5px;
   white-space: nowrap;
-  overflow: visible;
-  text-overflow: clip;
+  overflow: hidden;
 }
-.menu .met-name .prix-select {
+.restaurant-page .menu .met-name h3,
+.restaurant-page .menu .met-name p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.restaurant-page .menu .met-name p {
+  font-size: 1rem;
+  font-weight: lighter;
+}
+.restaurant-page .menu .met-name .prix-select {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: flex-end;
   gap: 10px;
 }
-.menu .met-name .prix-select .prix {
+.restaurant-page .menu .met-name .prix-select .prix {
   font-weight: bolder;
   display: flex;
   padding-bottom: 5px;
   padding-right: 20px;
 }
-.menu .met-name .selection {
+.restaurant-page .menu .met-name .selection {
   width: 60px;
   height: 100%;
   background-color: #99E2D0;
   position: relative;
   border-radius: 0 15px 15px 0;
-  display: none;
-  transition: transform 300ms ease, display 3s ease;
+  margin-right: -60px;
+  opacity: 0;
+  transition: all 500ms ease;
 }
-.menu .met-name .selection .fa-circle-check {
+.restaurant-page .menu .met-name .selection .fa-circle-check {
   position: absolute;
   bottom: 25px;
   left: 20px;
   color: white;
 }
-.menu .met-name:hover .selection {
-  display: block;
-  transition-duration: 3000ms;
-  transform: translateX(10px);
+.restaurant-page .menu .met-name:hover .selection {
+  opacity: 1;
+  margin-right: 0;
 }
-.menu .met-description:hover {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.btn-cta {
+.restaurant-page .btn-cta {
   display: flex;
   justify-content: center;
   padding: 20px 0 40px 0;
@@ -562,13 +585,14 @@ main {
     align-items: flex-start;
     gap: 25px;
     justify-content: center;
-    max-width: 1500px;
-    margin-left: 90px;
+    width: 100%;
+    padding: 0 0 0 50px;
   }
   .fonctionnement .step-media {
     display: flex;
     flex-direction: row;
     gap: 50px;
+    max-width: 1500px;
   }
   .card {
     position: relative;
@@ -582,11 +606,13 @@ main {
     display: flex;
     flex-direction: column;
     padding-bottom: 10px;
-    max-width: 1500px;
     padding: 20px 0 20px 0;
   }
   .restaurants h2 {
     padding-left: 50px;
+  }
+  .restaurants .restaurants-details {
+    max-width: 1500px;
   }
   .restaurants .restaurants-media {
     display: grid;
@@ -607,12 +633,12 @@ main {
     gap: 50px;
     align-items: center;
     height: 114px;
-    max-width: 1500px;
+    width: 100%;
     padding: 0;
   }
   .footer .footer-name {
     font-size: 1rem;
-    padding: 0 20px 0 0;
+    padding: 30px;
   }
   .footer .footer-link {
     display: flex;
