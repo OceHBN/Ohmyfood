@@ -89,10 +89,10 @@ main {
 }
 @keyframes chargement {
   0% {
-    rotate: 0deg;
+    transform: rotate(0deg);
   }
   50% {
-    rotate: 360deg;
+    transform: rotate(360deg);
   }
   99% {
     width: 120px;
@@ -103,7 +103,7 @@ main {
     z-index: 10;
   }
   100% {
-    rotate: 720deg;
+    transform: rotate(720deg);
     visibility: hidden;
     width: 0;
     height: 0;
