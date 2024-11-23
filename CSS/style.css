@@ -293,20 +293,21 @@ main {
   background-color: #f4f4f4;
   display: flex;
   flex-direction: column;
+  padding-left: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   width: 100%;
 }
-.restaurants .restaurants-details {
+.restaurants h2 {
+  padding-bottom: 20px;
+}
+.restaurants .restaurants-row {
   max-width: 1500px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 40px 20px 40px 20px;
-}
-.restaurants .restaurants-media {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 20px;
+  padding-bottom: 20px;
+  padding-right: 15px;
 }
 .restaurants .card {
   background-color: white;
@@ -586,7 +587,7 @@ main {
     gap: 25px;
     justify-content: center;
     width: 100%;
-    padding: 0 0 0 50px;
+    padding: 0 0 0 140px;
   }
   .fonctionnement .step-media {
     display: flex;
@@ -594,38 +595,36 @@ main {
     gap: 50px;
     max-width: 1500px;
   }
-  .card {
-    position: relative;
-  }
-  .card .heart {
-    position: absolute;
-    bottom: 25px;
-    left: 450px;
-  }
   .restaurants {
     display: flex;
     flex-direction: column;
-    padding-bottom: 10px;
-    padding: 20px 0 20px 0;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
   }
   .restaurants h2 {
-    padding-left: 50px;
+    padding-left: 80px;
   }
-  .restaurants .restaurants-details {
-    max-width: 1500px;
+  .restaurants .restaurants-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
-  .restaurants .restaurants-media {
-    display: grid;
-    grid-template-columns: repeat(2, 0fr);
-    justify-content: center;
-  }
-  .restaurants .restaurants-media .card {
-    width: 490px;
+  .restaurants .restaurants-row .card {
+    width: 420px;
     gap: 0px;
     border-radius: 15px;
   }
-  .restaurants .restaurants-media .card .card-txt {
+  .restaurants .restaurants-row .card .card-txt {
     padding: 20px;
+  }
+  .restaurants .card {
+    position: relative;
+  }
+  .restaurants .card .heart {
+    position: absolute;
+    bottom: 80px;
+    left: 350px;
   }
   .footer {
     display: flex;

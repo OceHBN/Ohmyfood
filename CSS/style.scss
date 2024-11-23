@@ -344,23 +344,22 @@ main {
     background-color: $gray-bg;
     display: flex;
     flex-direction: column;
+    padding-left: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     width: 100%;
 
-    .restaurants-details {
+    h2 {
+        padding-bottom: 20px;
+    }
+
+    .restaurants-row {
         max-width: 1500px;
         display: flex;
         flex-direction: column;
         gap: 20px;
-        padding: 40px 20px 40px 20px;
-    }
-
-    .restaurants-media {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 20px;
-
-
+        padding-bottom: 20px;
+        padding-right: 15px;
     }
 
     .card {
@@ -692,7 +691,7 @@ main {
         gap: 25px;
         justify-content: center;
         width: 100%;
-        padding: 0 0 0 50px;
+        padding: 0 0 0 140px;
 
         .step-media {
             display: flex;
@@ -703,43 +702,40 @@ main {
         }
     }
 
-    .card {
-        position: relative;
-
-        .heart {
-            position: absolute;
-            bottom: 25px;
-            left: 450px;
-        }
-    }
-
     .restaurants {
         display: flex;
         flex-direction: column;
-        padding-bottom: 10px;
-        padding: 20px 0 20px 0;
+        padding-left: 0px;
+        padding-right: 0px;
+        width: 100%;
 
         h2 {
-            padding-left: 50px;
+            padding-left: 80px;
         }
 
-        .restaurants-details {
-            max-width: 1500px;
-        }
-
-        .restaurants-media {
-            display: grid;
-            grid-template-columns: repeat(2, 0fr);
-            justify-content: center;
+        .restaurants-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
 
             .card {
-                width: 490px;
+                width: 420px;
                 gap: 0px;
                 border-radius: 15px;
 
                 .card-txt {
                     padding: 20px;
                 }
+            }
+        }
+
+        .card {
+            position: relative;
+
+            .heart {
+                position: absolute;
+                bottom: 80px;
+                left: 350px;
             }
         }
     }
